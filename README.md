@@ -18,7 +18,7 @@ provides $300 as a trial period, which is enough for LND deploy.
 
    2.3. Wait for the API and related services to be enabled. This can take several minutes.
 
-   2.4. Make sure that billing is enabled for your project. (вот ссылка на этот текст https://cloud.google.com/kubernetes-engine/docs/tutorials/hello-app).
+   2.4. Make sure that billing is enabled for your project.
 
 3. Go to Google Cloud shell (picture 1).
 
