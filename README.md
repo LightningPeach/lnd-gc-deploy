@@ -24,7 +24,7 @@ provides $300 as a trial period, which is enough for LND deploy.
 
 4. Create container cluster 
 ```
-gcloud container clusters create lnd-cluster --num-nodes=1
+gcloud container clusters create lnd-cluster --zone=europe-west1-b --num-nodes=1   
 ```
 It may take several minutes for the cluster to be created.
 
