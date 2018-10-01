@@ -20,7 +20,7 @@ provides $300 as a trial period, which is enough for LND deploy.
 
    2.4. Make sure that billing is enabled for your project.
 
-3. Go to Google Cloud shell (picture 1).
+3. Go to Activate Cloud Shell (picture 1).
 
 4. Create container cluster 
 ```
