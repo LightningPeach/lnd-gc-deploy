@@ -69,27 +69,33 @@ You won’t be charged unless you manually upgrade to a paid account.
    kubectl create -f lnd-service.yml
    ```
 
-9. Create new tls certificate valid for your ip for your lnd:
+9. Wait while port will be exposed. To check if it is done run:
+   ```
+   kubectl get services
+   ```
+   and find "lnd-pod" service. If external ip is not <pending> you can continue. 
+
+10. Create new tls certificate valid for your ip for your lnd:
   
    ```
    ./rebuild-tls.sh
    ```
   
-10. Restart you lnd:
+11. Restart you lnd:
   
     ```
     kubectl create -f lnd-pod.yml
     ```
 
-11. Get your external IP (forth column) for service lnd-pod by running: 
-   
+12. Get your external IP (forth column) for service lnd-pod by running: 
+  
     ```
     ./show-host.sh
     ```
     You can copy and paste it as host to your signup form in the LightningPeach wallet. 
    
 
-12. Now you need to get credentials for lnd: tls.cert and macaroons hex. To get tls.cert run:
+13. Now you need to get credentials for lnd: tls.cert and macaroons hex. To get tls.cert run:
  
     ```
     kubectl exec lnd-pod -- cat /root/.lnd/tls.cert
