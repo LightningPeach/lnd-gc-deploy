@@ -48,46 +48,46 @@ You won’t be charged unless you manually upgrade to a paid account.
    cd lnd-gc-deploy
    ```
    
-5. Create volume:
+6. Create volume:
    ```
    sed -i "s/volumepath/\/home\/$USER\/.lnd/g" lnd-volume.yml
    kubectl create -f lnd-volume.yml
    ```
 
-6. Create claim:
+7. Create claim:
    ```
    kubectl create -f lnd-claim.yml
    ```
    
-7. Create pod:
+8. Create pod:
    ```
    kubectl create -f lnd-pod.yml
    ```
 
-8. To expose your application to traffic from the Internet, run the following command: 
+9. To expose your application to traffic from the Internet, run the following command: 
    ```
    kubectl create -f lnd-service.yml
    ```
 
-9. Wait while port will be exposed. To check if it is done run:
+10. Wait while port will be exposed. To check if it is done run:
    ```
    kubectl get services
    ```
-   and find "lnd-pod" service. If external ip is not <pending> you can continue. 
+   and find "lnd-pod" service. If external ip is not &lt;pending&gt; you can continue. 
 
-10. Create new tls certificate valid for your ip for your lnd:
+11. Create new tls certificate valid for your ip for your lnd:
   
    ```
    ./rebuild-tls.sh
    ```
   
-11. Restart you lnd:
+12. Restart you lnd:
   
     ```
     kubectl create -f lnd-pod.yml
     ```
 
-12. Get your external IP (forth column) for service lnd-pod by running: 
+13. Get your external IP (forth column) for service lnd-pod by running: 
   
     ```
     ./show-host.sh
@@ -95,7 +95,7 @@ You won’t be charged unless you manually upgrade to a paid account.
     You can copy and paste it as host to your signup form in the LightningPeach wallet. 
    
 
-13. Now you need to get credentials for lnd: tls.cert and macaroons hex. To get tls.cert run:
+14. Now you need to get credentials for lnd: tls.cert and macaroons hex. To get tls.cert run:
  
     ```
     kubectl exec lnd-pod -- cat /root/.lnd/tls.cert
