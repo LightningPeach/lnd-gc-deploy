@@ -7,7 +7,7 @@ This tutorial will guide you with step-by-step instructions on how to accomplish
 this task with the help of Google cloud. 
 
 1. Sign up for [Google cloud](https://cloud.google.com/) or sign in 
-if you already have an account there. You can sign up for free and 
+if you already have an account there. You can start free trial and 
 get $300 credit to spend on Google Cloud Platform over the next 12 months. 
 To receive you need to specify your credit card details. 
 Google asks you for your credit card to make sure you are not a robot. 
