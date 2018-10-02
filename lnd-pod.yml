@@ -11,7 +11,7 @@ spec:
         claimName: lnd-claim
   containers:
     - name: lnd-container
-      image: lightningnetwok/lnd-gc
+      image: lightningnetwork/lnd-gc
       command: ["./start-lnd.sh", "--tlsextradomain=0.0.0.0"]
       ports:
         - containerPort: 9735
