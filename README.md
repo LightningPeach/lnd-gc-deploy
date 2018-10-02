@@ -70,16 +70,16 @@ You won’t be charged unless you manually upgrade to a paid account.
    ```
 
 10. Wait while port will be exposed. To check if it is done run:
-   ```
-   kubectl get services
-   ```
-   and find "lnd-pod" service. If external ip is not &lt;pending&gt; you can continue. 
+    ```
+    kubectl get services
+    ```
+    and find "lnd-pod" service. If external ip is not &lt;pending&gt; you can continue. 
 
 11. Create new tls certificate valid for your ip for your lnd:
   
-   ```
-   ./rebuild-tls.sh
-   ```
+    ```
+    ./rebuild-tls.sh
+    ```
   
 12. Restart you lnd:
   
