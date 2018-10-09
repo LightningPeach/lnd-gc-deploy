@@ -86,30 +86,30 @@ You won’t be charged unless you manually upgrade to a paid account.
     ```
     kubectl create -f lnd-pod.yml
     ```
-13. You now can get data to connect lnd in 2 ways:
-   
-    13.1 By generating qr code and scan it from mobile.
-       
+13. You can get data to connect lnd in 2 ways:
+  
+    13.1 By generating qr code and scanning it from mobile.
+    
        To generate qr run:
          
        ```
        ./display-qr.sh
        ```
 
-    13.2 By getting all data manualy and write them into input fields.
-       
-       Get your external IP (forth column) for service lnd-pod by running:
+    13.2 By getting all data manualy and adding it to input fields.
+    
+       Get your external IP (fourth column) for service lnd-pod by running:
        ```
        ./show-host.sh
        ```
        You can copy and paste it as host to your signup form in the LightningPeach wallet. 
-       
+    
        To get tls.cert run:
-       
+    
        ```
        kubectl exec lnd-pod -- cat /root/.lnd/tls.cert
        ```
-       
+    
        To get macaroon hex run:
        ```
        kubectl exec lnd-pod -- xxd -p /root/.lnd/data/chain/bitcoin/testnet/admin.macaroon | tr -d '[:space:]'
