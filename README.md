@@ -9,7 +9,7 @@ this task with the help of Google cloud.
 1. Sign up for [Google cloud](https://cloud.google.com/) or sign in 
 if you already have an account there. You can start free trial and 
 get $300 credit to spend on Google Cloud Platform over the next 12 months. 
-To receive you need to specify your credit card details. 
+To receive the credit you need to specify your credit card details. 
 Google asks you for your credit card to make sure you are not a robot. 
 You won’t be charged unless you manually upgrade to a paid account.
 
@@ -69,13 +69,13 @@ You won’t be charged unless you manually upgrade to a paid account.
    kubectl create -f lnd-service.yml
    ```
 
-10. Wait while port will be exposed. To check if it is done run:
+10. Wait for a port to be exposed. To check the status run:
     ```
     kubectl get services
     ```
     and find "lnd-pod" service. If external ip is not &lt;pending&gt; you can continue. 
 
-11. Create new tls certificate valid for your ip for your lnd:
+11.  Create new tls certificate which is valid for your ip and for your lnd:
   
     ```
     ./rebuild-tls.sh
@@ -86,26 +86,35 @@ You won’t be charged unless you manually upgrade to a paid account.
     ```
     kubectl create -f lnd-pod.yml
     ```
-
-13. Get your external IP (forth column) for service lnd-pod by running: 
-  
-    ```
-    ./show-host.sh
-    ```
-    You can copy and paste it as host to your signup form in the LightningPeach wallet. 
+13. You now can get data to connect lnd in 2 ways:
    
+    13.1 By generating qr code and scan it from mobile.
+       
+       To generate qr run:
+         
+       ```
+       ./display-qr.sh
+       ```
 
-14. Now you need to get credentials for lnd: tls.cert and macaroons hex. To get tls.cert run:
- 
-    ```
-    kubectl exec lnd-pod -- cat /root/.lnd/tls.cert
-    ```
-    To get macaroon hex run:
-    ```
-    kubectl exec lnd-pod -- xxd -p /root/.lnd/data/chain/bitcoin/testnet/admin.macaroon | tr -d '[:space:]'
-    ```
+    13.2 By getting all data manualy and write them into input fields.
+       
+       Get your external IP (forth column) for service lnd-pod by running:
+       ```
+       ./show-host.sh
+       ```
+       You can copy and paste it as host to your signup form in the LightningPeach wallet. 
+       
+       To get tls.cert run:
+       
+       ```
+       kubectl exec lnd-pod -- cat /root/.lnd/tls.cert
+       ```
+       
+       To get macaroon hex run:
+       ```
+       kubectl exec lnd-pod -- xxd -p /root/.lnd/data/chain/bitcoin/testnet/admin.macaroon | tr -d '[:space:]'
+       ```
    
-
 
 Also you can deploy LND on your own from docker container. 
 You will need to open ports 9735 (for peer access), 
