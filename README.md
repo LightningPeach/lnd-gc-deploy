@@ -75,7 +75,7 @@ You won’t be charged unless you manually upgrade to a paid account.
     ```
     and find "lnd-pod" service. If external ip is not &lt;pending&gt; you can continue. 
 
-11.  Create new tls certificate which is valid for your ip and for your lnd:
+11. Create new tls certificate which is valid for your ip and for your lnd:
   
     ```
     ./rebuild-tls.sh
