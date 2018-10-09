@@ -95,6 +95,9 @@ You won’t be charged unless you manually upgrade to a paid account.
        ```
        ./display-qr.sh
        ```
+       
+       *NOTE:* To zoom out qr code, you can zoom out the browser page 
+       (for example, with the help of combination "ctrl/command" + "-").
 
     13.2 By getting all data manualy and adding it to input fields.
     
