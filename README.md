@@ -93,6 +93,7 @@ You won’t be charged unless you manually upgrade to a paid account.
        To generate qr run:
          
        ```
+       apt-get install -y qrencode
        ./display-qr.sh
        ```
        
