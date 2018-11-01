@@ -2,7 +2,8 @@
 IP=$(kubectl get services | grep lnd-pod | awk '{print $4}')
 kubectl exec lnd-pod -- rm /root/.lnd/tls.cert
 kubectl exec lnd-pod -- rm /root/.lnd/tls.key
-kubectl exec lnd-pod -- cat server.json > tmp.json
+# kubectl exec lnd-pod -- cat server.json > tmp.json
+cat server.json >> tmp.json
 sed -i "s/address/$IP/g" tmp.json
 kubectl cp tmp.json lnd-pod:/server.new.json
 rm tmp.json
