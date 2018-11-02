@@ -59,4 +59,5 @@ exec lnd \
     "--$CHAIN.node"="neutrino" \
     "--neutrino.connect"="testnetwallet.lightningpeach.com" \
     --debuglevel="$DEBUG" \
+    --maxpendingchannels="10" \
     "$@"
