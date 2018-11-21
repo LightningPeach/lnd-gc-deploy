@@ -25,7 +25,8 @@ You won’t be charged unless you manually upgrade to a paid account.
    2.4. Make sure that [billing is enabled](https://cloud.google.com/billing/docs/how-to/modify-project) 
    for your project.
 
-3. Go to Activate Cloud Shell (picture 1).
+3. Go to Activate Cloud Shell.
+   ![Cannot display picture.](files/picture1.jpg)
 
 4. Create container cluster  
    
