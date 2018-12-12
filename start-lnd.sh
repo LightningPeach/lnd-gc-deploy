@@ -59,5 +59,5 @@ exec lnd \
     "--$CHAIN.node"="neutrino" \
     "--neutrino.connect"="proxy.lightningpeach.com:8333" \
     --debuglevel="$DEBUG" \
-    --maxpendingchannels="10" \
+    --maxpendingchannels="5" \
     "$@"
