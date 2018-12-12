@@ -43,9 +43,11 @@ You won’t be charged unless you manually upgrade to a paid account.
    gcloud compute zones list
    ```
 
+You can run your node on mainnet or testnet.
+
 ## Mainnet
  
-5. Clone config to deploy your lnd and deploy it:
+1. Clone config to deploy your lnd and deploy it:
    ```
    git clone https://github.com/LightningPeach/lnd-gc-deploy.git
    cd lnd-gc-deploy
@@ -56,26 +58,26 @@ You won’t be charged unless you manually upgrade to a paid account.
    kubectl create -f lnd-service.yml
    ```
 
-6. Wait for a port to be exposed. To check the status run:
+2. Wait for a port to be exposed. To check the status run:
     ```
     kubectl get services
     ```
     and find "lnd-pod" service. If external ip is not &lt;pending&gt; you can continue. 
 
-7. Create new tls certificate which is valid for your ip and for your lnd:
+3. Create new tls certificate which is valid for your ip and for your lnd:
   
     ```
     ./rebuild-tls.sh
     ```
   
-8. Restart you lnd:
+4. Restart you lnd:
     ```
     kubectl create -f lnd-pod.yml
     ```
     
-9. You can get data to connect lnd in 2 ways:
+5. You can get data to connect lnd in 2 ways:
   
-    9.1 By generating qr code and scanning it from mobile.
+    5.1 By generating qr code and scanning it from mobile.
     
       To generate qr run:
          
@@ -87,7 +89,7 @@ You won’t be charged unless you manually upgrade to a paid account.
       *NOTE:* To zoom out qr code, you can zoom out the browser page 
       (for example, with the help of combination "ctrl/command" + "-").
 
-    9.2 By getting all data manualy and adding it to input fields.
+    5.2 By getting all data manualy and adding it to input fields.
     
       Get your external IP (fourth column) for service lnd-pod by running:
       ```
@@ -113,7 +115,7 @@ and 8080 (for managing from a smartphone).
 
 ## Testnet
 
-5. Clone config to deploy your lnd and deploy it:
+1. Clone config to deploy your lnd and deploy it:
    ```
    git clone https://github.com/LightningPeach/lnd-gc-deploy.git
    cd lnd-gc-deploy
@@ -124,26 +126,26 @@ and 8080 (for managing from a smartphone).
    kubectl create -f lnd-service.yml
    ```
 
-6. Wait for a port to be exposed. To check the status run:
+2. Wait for a port to be exposed. To check the status run:
     ```
     kubectl get services
     ```
     and find "lnd-pod" service. If external ip is not &lt;pending&gt; you can continue. 
 
-7. Create new tls certificate which is valid for your ip and for your lnd:
+3. Create new tls certificate which is valid for your ip and for your lnd:
   
     ```
     ./rebuild-tls.sh
     ```
   
-8. Restart you lnd:
+4. Restart you lnd:
     ```
     kubectl create -f lnd-pod-testnet.yml
     ```
     
-9. You can get data to connect lnd in 2 ways:
+5. You can get data to connect lnd in 2 ways:
   
-    9.1 By generating qr code and scanning it from mobile.
+    5.1 By generating qr code and scanning it from mobile.
     
       To generate qr run:
          
@@ -155,7 +157,7 @@ and 8080 (for managing from a smartphone).
       *NOTE:* To zoom out qr code, you can zoom out the browser page 
       (for example, with the help of combination "ctrl/command" + "-").
 
-    9.2 By getting all data manualy and adding it to input fields.
+    5.2 By getting all data manualy and adding it to input fields.
     
       Get your external IP (fourth column) for service lnd-pod by running:
       ```
