@@ -42,6 +42,8 @@ You won’t be charged unless you manually upgrade to a paid account.
    ```
    gcloud compute zones list
    ```
+
+## Mainnet
  
 5. Clone config to deploy your lnd and deploy it:
    ```
@@ -102,6 +104,74 @@ You won’t be charged unless you manually upgrade to a paid account.
       To get macaroon hex run:
       ```
       kubectl exec lnd-pod -- xxd -p /root/.lnd/data/chain/bitcoin/mainnet/admin.macaroon | tr -d '[:space:]'
+      ```
+   
+
+Also you can deploy LND on your own from docker container. 
+You will need to open ports 9735 (for peer access), 
+and 8080 (for managing from a smartphone).
+
+## Testnet
+
+5. Clone config to deploy your lnd and deploy it:
+   ```
+   git clone https://github.com/LightningPeach/lnd-gc-deploy.git
+   cd lnd-gc-deploy
+   sed -i "s/volumepath/\/home\/$USER\/.lnd/g" lnd-volume.yml
+   kubectl create -f lnd-volume.yml
+   kubectl create -f lnd-claim.yml 
+   kubectl create -f lnd-pod-testnet.yml
+   kubectl create -f lnd-service.yml
+   ```
+
+6. Wait for a port to be exposed. To check the status run:
+    ```
+    kubectl get services
+    ```
+    and find "lnd-pod" service. If external ip is not &lt;pending&gt; you can continue. 
+
+7. Create new tls certificate which is valid for your ip and for your lnd:
+  
+    ```
+    ./rebuild-tls.sh
+    ```
+  
+8. Restart you lnd:
+    ```
+    kubectl create -f lnd-pod-testnet.yml
+    ```
+    
+9. You can get data to connect lnd in 2 ways:
+  
+    9.1 By generating qr code and scanning it from mobile.
+    
+      To generate qr run:
+         
+      ```
+      sudo apt-get install -y qrencode
+      ./display-qr-testnet.sh
+      ```
+       
+      *NOTE:* To zoom out qr code, you can zoom out the browser page 
+      (for example, with the help of combination "ctrl/command" + "-").
+
+    9.2 By getting all data manualy and adding it to input fields.
+    
+      Get your external IP (fourth column) for service lnd-pod by running:
+      ```
+      ./show-host.sh
+      ```
+      You can copy and paste it as host to your signup form in the LightningPeach wallet. 
+    
+      To get tls.cert run:
+    
+      ```
+      kubectl exec lnd-pod -- cat /root/.lnd/tls.cert
+      ```
+    
+      To get macaroon hex run:
+      ```
+      kubectl exec lnd-pod -- xxd -p /root/.lnd/data/chain/bitcoin/testnet/admin.macaroon | tr -d '[:space:]'
       ```
    
 

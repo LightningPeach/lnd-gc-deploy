@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: lnd-pod
+  labels:
+    name: lnd-pod
+spec:
+  volumes:
+    - name: lnd-storage
+      persistentVolumeClaim:
+        claimName: lnd-claim
+  containers:
+    - name: lnd-container
+      image: lightningnetwork/lnd-gc
+      command: ["./start-lnd-testnet.sh", "--tlsextradomain=0.0.0.0"]
+      ports:
+        - containerPort: 9735
+        - containerPort: 8080
+      volumeMounts:
+        - name: lnd-storage
+          mountPath: /root/.lnd
