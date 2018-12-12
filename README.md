@@ -43,7 +43,7 @@ You won’t be charged unless you manually upgrade to a paid account.
    gcloud compute zones list
    ```
 
-*You can run your node on mainnet or testnet. You need to chose only one option.*
+**You can run your node on mainnet or testnet. You need to chose only one option.**
 
 ## Mainnet
  
