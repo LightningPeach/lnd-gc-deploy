@@ -40,7 +40,7 @@ set_default() {
 
 # Set default variables if needed.
 DEBUG=$(set_default "$DEBUG" "info")
-NETWORK=$(set_default "$NETWORK" "testnet")
+NETWORK=$(set_default "$NETWORK" "mainnet")
 CHAIN=$(set_default "$CHAIN" "bitcoin")
 BACKEND="btcd"
 if [[ "$CHAIN" == "litecoin" ]]; then
@@ -57,7 +57,7 @@ exec lnd \
     "--$CHAIN.active" \
     "--$CHAIN.$NETWORK" \
     "--$CHAIN.node"="neutrino" \
-    "--neutrino.connect"="testnetwallet.lightningpeach.com" \
+    "--neutrino.connect"="proxy.lightningpeach.com:8333" \
     --debuglevel="$DEBUG" \
     --maxpendingchannels="10" \
     "$@"

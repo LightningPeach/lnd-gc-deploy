@@ -6,7 +6,7 @@ RUN apk add --no-cache git make build-base
 # install lnd with http pathes
 RUN git clone https://github.com/LightningPeach/lnd.git /go/src/github.com/lightningnetwork/lnd
 WORKDIR /go/src/github.com/lightningnetwork/lnd
-RUN git checkout wallet
+RUN git checkout wallet-mainnet
 RUN make
 RUN make install
 

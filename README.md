@@ -101,7 +101,7 @@ You won’t be charged unless you manually upgrade to a paid account.
     
       To get macaroon hex run:
       ```
-      kubectl exec lnd-pod -- xxd -p /root/.lnd/data/chain/bitcoin/testnet/admin.macaroon | tr -d '[:space:]'
+      kubectl exec lnd-pod -- xxd -p /root/.lnd/data/chain/bitcoin/mainnet/admin.macaroon | tr -d '[:space:]'
       ```
    
 
