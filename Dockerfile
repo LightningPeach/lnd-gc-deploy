@@ -33,9 +33,11 @@ RUN apk add --no-cache \
 
 # Copy the entrypoint script.
 COPY ./start-lnd.sh .
+COPY ./start-lnd-testnet.sh .
 COPY ./lncli.sh .
 COPY ./server.json .
 COPY ./config.json .
+COPY ./kill-lnd.sh .
 RUN chmod +x start-lnd.sh lncli.sh
 
 CMD ["./start-lnd.sh"]

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sleep 1m
+sleep 12h
 
 # Try to kill lnd
 pkill lnd
