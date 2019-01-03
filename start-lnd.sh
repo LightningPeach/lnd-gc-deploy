@@ -47,11 +47,10 @@ if [[ "$CHAIN" == "litecoin" ]]; then
     BACKEND="ltcd"
 fi
 
-./kill-lnd.sh &
+# ./kill-lnd.sh &
 
 # For testnet test usage only
 exec lnd \
-    --noseedbackup \
     --logdir="/data" \
     --rpclisten="0.0.0.0:10009" \
     --restlisten="0.0.0.0:8080" \

@@ -1,3 +1,3 @@
 #!/bin/bash
 
-lncli --network testnet $@
+lncli --network mainnet $@
