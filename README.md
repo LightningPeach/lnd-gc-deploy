@@ -108,6 +108,14 @@ You won’t be charged unless you manually upgrade to a paid account.
       kubectl exec lnd-pod -- xxd -p /root/.lnd/data/chain/bitcoin/mainnet/admin.macaroon | tr -d '[:space:]'
       ```
    
+If you want to restart your lnd you need to run:
+  ```
+  kubectl delete pod lnd-pod
+  ```
+wait until lnd pod will be deleted and then run lnd:
+  ```
+  kubectl create -f lnd-pod.yml
+  ```
 
 Also you can deploy LND on your own from docker container. 
 You will need to open ports 9735 (for peer access), 
@@ -176,6 +184,14 @@ and 8080 (for managing from a smartphone).
       kubectl exec lnd-pod -- xxd -p /root/.lnd/data/chain/bitcoin/testnet/admin.macaroon | tr -d '[:space:]'
       ```
    
+If you want to restart your lnd you need to run:
+  ```
+  kubectl delete pod lnd-pod
+  ```
+wait until lnd pod will be deleted and then run lnd:
+  ```
+  kubectl create -f lnd-pod-testnet.yml
+  ```
 
 Also you can deploy LND on your own from docker container. 
 You will need to open ports 9735 (for peer access), 
