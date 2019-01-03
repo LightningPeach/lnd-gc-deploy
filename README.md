@@ -171,9 +171,7 @@ You won’t be charged unless you manually upgrade to a paid account.
       kubectl exec lnd-pod -- xxd -p /root/.lnd/data/chain/bitcoin/testnet/admin.macaroon | tr -d '[:space:]'
       ```
 
-## Restart
-
-### Mainnet
+## How to restart lnd
 
 If you want to restart your lnd you need to run:
   ```
@@ -181,12 +179,12 @@ If you want to restart your lnd you need to run:
   ```
 wait until lnd pod will be deleted and then run lnd:
 
-  * for mainnet
+  * for **mainnet**
   ```
   kubectl create -f lnd-pod.yml
   ```
   
-  * for testnet
+  * for **testnet**
   ```
   kubectl create -f lnd-pod-testnet.yml
   ```
