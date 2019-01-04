@@ -108,6 +108,19 @@ You won’t be charged unless you manually upgrade to a paid account.
       kubectl exec lnd-pod -- xxd -p /root/.lnd/data/chain/bitcoin/mainnet/admin.macaroon | tr -d '[:space:]'
       ```
    
+6. Create a wallet inside lnd:
+   ```
+   kubectl exec lnd-pod -- ./lncli.sh create
+   ```
+   You should create a password for the wallet.
+   
+   If you don't have a bitcoin wallet type that you don't have a seeds (n).
+   You will get you [seed words](https://en.bitcoinwiki.org/wiki/Mnemonic_phrase). 
+   **You need to keep seed words in secret and save if somewhere to restore or transfer you wallet.**
+   You can also create a password for seed words if you want.
+   
+   If you already have a bitcoin wallet type seed phrase if you want to use all balances from your wallet in the lnd.
+
 ## Testnet
 
 1. Clone config to deploy your lnd and deploy it:
@@ -170,6 +183,20 @@ You won’t be charged unless you manually upgrade to a paid account.
       ```
       kubectl exec lnd-pod -- xxd -p /root/.lnd/data/chain/bitcoin/testnet/admin.macaroon | tr -d '[:space:]'
       ```
+
+6. Create a wallet inside lnd:
+   ```
+   kubectl exec lnd-pod -- ./lncli-testnet.sh create
+   ```
+   You should create a password for the wallet. 
+   
+   If you don't have a bitcoin wallet type that you don't have a seeds (n). 
+   You will get you [seed words](https://en.bitcoinwiki.org/wiki/Mnemonic_phrase).
+   **You need to keep seed words in secret and save if somewhere to restore or transfer you wallet.**
+   You can also create a password for seed words if you want.
+   
+   If you already have a bitcoin wallet type seed phrase if you want to use all balances from your wallet in the lnd.
+   
 
 ## How to restart lnd
 

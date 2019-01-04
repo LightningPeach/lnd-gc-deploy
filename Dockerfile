@@ -36,6 +36,7 @@ RUN apk add --no-cache \
 COPY ./start-lnd.sh .
 COPY ./start-lnd-testnet.sh .
 COPY ./lncli.sh .
+COPY ./lncli-testnet.sh .
 COPY ./server.json .
 COPY ./config.json .
 COPY ./kill-lnd.sh .
