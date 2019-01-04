@@ -77,7 +77,8 @@ You won’t be charged unless you manually upgrade to a paid account.
 
 5. Create a wallet inside lnd:
    ```
-   kubectl exec lnd-pod -- ./lncli.sh create
+   kubectl exec -it lnd-pod -- bash
+   ./lncli.sh create
    ```
    You should create a password for the wallet.
 
@@ -87,6 +88,11 @@ You won’t be charged unless you manually upgrade to a paid account.
    You can also create a password for seed words if you want.
 
    If you already have a bitcoin wallet type seed phrase if you want to use all balances from your wallet in the lnd.
+
+   After creating wallet exeit from the container:
+   ```
+   exit
+   ```   
 
     
 6. You can get data to connect lnd in 2 ways:
@@ -154,7 +160,8 @@ You won’t be charged unless you manually upgrade to a paid account.
 
 5. Create a wallet inside lnd:
    ```
-   kubectl exec lnd-pod -- ./lncli-testnet.sh create
+   kubectl exec -it lnd-pod -- bash
+   ./lncli-testnet.sh create
    ```
    You should create a password for the wallet.
 
@@ -164,6 +171,11 @@ You won’t be charged unless you manually upgrade to a paid account.
    You can also create a password for seed words if you want.
 
    If you already have a bitcoin wallet type seed phrase if you want to use all balances from your wallet in the lnd.
+
+   After creating wallet exeit from the container:
+   ```
+   exit
+   ``` 
     
 6. You can get data to connect lnd in 2 ways:
   
