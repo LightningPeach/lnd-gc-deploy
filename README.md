@@ -82,18 +82,17 @@ You won’t be charged unless you manually upgrade to a paid account.
    ```
    You should create a password for the wallet.
 
-   If you don't have a bitcoin wallet type that you don't have a seeds (n).
-   You will get you [seed words](https://en.bitcoinwiki.org/wiki/Mnemonic_phrase).
-   **You need to keep seed words in secret and save if somewhere to restore or transfer you wallet.**
+   If you don't have a bitcoin wallet, type that you don't have seeds (n).
+   You will get your [seed words](https://en.bitcoinwiki.org/wiki/Mnemonic_phrase).
+   **You need to keep seed words in secret and save it somewhere for wallet recovery or moving to a new device.**
    You can also create a password for seed words if you want.
 
-   If you already have a bitcoin wallet type seed phrase if you want to use all balances from your wallet in the lnd.
+   If you already have a bitcoin wallet and want to use all balances from your wallet in the lnd, type your seed phrase.
 
-   After creating wallet exeit from the container:
+   After creating wallet exit from the container:
    ```
    exit
-   ```   
-
+   ```
     
 6. You can get data to connect lnd in 2 ways:
   
@@ -165,14 +164,14 @@ You won’t be charged unless you manually upgrade to a paid account.
    ```
    You should create a password for the wallet.
 
-   If you don't have a bitcoin wallet type that you don't have a seeds (n).
-   You will get you [seed words](https://en.bitcoinwiki.org/wiki/Mnemonic_phrase).
-   **You need to keep seed words in secret and save if somewhere to restore or transfer you wallet.**
+   If you don't have a bitcoin wallet, type that you don't have seeds (n).
+   You will get your [seed words](https://en.bitcoinwiki.org/wiki/Mnemonic_phrase).
+   **You need to keep seed words in secret and save it somewhere for wallet recovery or moving to a new device.**
    You can also create a password for seed words if you want.
 
-   If you already have a bitcoin wallet type seed phrase if you want to use all balances from your wallet in the lnd.
-
-   After creating wallet exeit from the container:
+   If you already have a bitcoin wallet and want to use all balances from your wallet in the lnd, type your seed phrase.
+   
+   After creating wallet exit from the container:   
    ```
    exit
    ``` 
@@ -216,16 +215,34 @@ If you want to restart your lnd you need to run:
   ```
   kubectl delete pod lnd-pod
   ```
-wait until lnd pod will be deleted and then run lnd:
+  wait until lnd pod is deleted and then run lnd
 
   * for **mainnet**
   ```
   kubectl create -f lnd-pod.yml
   ```
+    wait while lnd is creating and run
+  ```
+  kubectl exec -it lnd-pod -- bash
+  ./lncli.sh unlock
+  ```
+    and type the password you used for lnd. Exit from the container:
+  ```
+  exit
+  ```
   
   * for **testnet**
   ```
   kubectl create -f lnd-pod-testnet.yml
+  ```
+  wait while lnd is creating and run
+  ```
+  kubectl exec -it lnd-pod -- bash
+  ./lncli-testnet.sh unlock
+  ```
+    and type the password you used for lnd. Exit from the container:
+  ```
+  exit
   ```
 
 ## Deployment on own server
