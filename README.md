@@ -218,32 +218,32 @@ If you want to restart your lnd you need to run:
   wait until lnd pod is deleted and then run lnd
 
   * for **mainnet**
-  ```
-  kubectl create -f lnd-pod.yml
-  ```
+    ```
+    kubectl create -f lnd-pod.yml
+    ```
     wait while lnd is creating and run
-  ```
-  kubectl exec -it lnd-pod -- bash
-  ./lncli.sh unlock
-  ```
+    ```
+    kubectl exec -it lnd-pod -- bash
+    ./lncli.sh unlock
+    ```
     and type the password you used for lnd. Exit from the container:
-  ```
-  exit
-  ```
+    ```
+    exit
+    ```
   
   * for **testnet**
-  ```
-  kubectl create -f lnd-pod-testnet.yml
-  ```
-  wait while lnd is creating and run
-  ```
-  kubectl exec -it lnd-pod -- bash
-  ./lncli-testnet.sh unlock
-  ```
+    ```
+    kubectl create -f lnd-pod-testnet.yml
+    ```
+    wait while lnd is creating and run
+    ```
+    kubectl exec -it lnd-pod -- bash
+    ./lncli-testnet.sh unlock
+    ```
     and type the password you used for lnd. Exit from the container:
-  ```
-  exit
-  ```
+    ```
+    exit
+    ```
 
 ## Deployment on own server
 
