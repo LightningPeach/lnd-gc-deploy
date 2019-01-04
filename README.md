@@ -74,10 +74,24 @@ You won’t be charged unless you manually upgrade to a paid account.
     ```
     kubectl create -f lnd-pod.yml
     ```
+
+5. Create a wallet inside lnd:
+   ```
+   kubectl exec lnd-pod -- ./lncli.sh create
+   ```
+   You should create a password for the wallet.
+
+   If you don't have a bitcoin wallet type that you don't have a seeds (n).
+   You will get you [seed words](https://en.bitcoinwiki.org/wiki/Mnemonic_phrase).
+   **You need to keep seed words in secret and save if somewhere to restore or transfer you wallet.**
+   You can also create a password for seed words if you want.
+
+   If you already have a bitcoin wallet type seed phrase if you want to use all balances from your wallet in the lnd.
+
     
-5. You can get data to connect lnd in 2 ways:
+6. You can get data to connect lnd in 2 ways:
   
-    5.1 By generating qr code and scanning it from mobile.
+    6.1 By generating qr code and scanning it from mobile.
     
       To generate qr run:
          
@@ -89,7 +103,7 @@ You won’t be charged unless you manually upgrade to a paid account.
       *NOTE:* To zoom out qr code, you can zoom out the browser page 
       (for example, with the help of combination "ctrl/command" + "-").
 
-    5.2 By getting all data manualy and adding it to input fields.
+    6.2 By getting all data manualy and adding it to input fields.
     
       Get your external IP (fourth column) for service lnd-pod by running:
       ```
@@ -108,19 +122,6 @@ You won’t be charged unless you manually upgrade to a paid account.
       kubectl exec lnd-pod -- xxd -p /root/.lnd/data/chain/bitcoin/mainnet/admin.macaroon | tr -d '[:space:]'
       ```
    
-6. Create a wallet inside lnd:
-   ```
-   kubectl exec lnd-pod -- ./lncli.sh create
-   ```
-   You should create a password for the wallet.
-   
-   If you don't have a bitcoin wallet type that you don't have a seeds (n).
-   You will get you [seed words](https://en.bitcoinwiki.org/wiki/Mnemonic_phrase). 
-   **You need to keep seed words in secret and save if somewhere to restore or transfer you wallet.**
-   You can also create a password for seed words if you want.
-   
-   If you already have a bitcoin wallet type seed phrase if you want to use all balances from your wallet in the lnd.
-
 ## Testnet
 
 1. Clone config to deploy your lnd and deploy it:
@@ -150,10 +151,23 @@ You won’t be charged unless you manually upgrade to a paid account.
     ```
     kubectl create -f lnd-pod-testnet.yml
     ```
+
+5. Create a wallet inside lnd:
+   ```
+   kubectl exec lnd-pod -- ./lncli-testnet.sh create
+   ```
+   You should create a password for the wallet.
+
+   If you don't have a bitcoin wallet type that you don't have a seeds (n).
+   You will get you [seed words](https://en.bitcoinwiki.org/wiki/Mnemonic_phrase).
+   **You need to keep seed words in secret and save if somewhere to restore or transfer you wallet.**
+   You can also create a password for seed words if you want.
+
+   If you already have a bitcoin wallet type seed phrase if you want to use all balances from your wallet in the lnd.
     
-5. You can get data to connect lnd in 2 ways:
+6. You can get data to connect lnd in 2 ways:
   
-    5.1 By generating qr code and scanning it from mobile.
+    6.1 By generating qr code and scanning it from mobile.
     
       To generate qr run:
          
@@ -165,8 +179,8 @@ You won’t be charged unless you manually upgrade to a paid account.
       *NOTE:* To zoom out qr code, you can zoom out the browser page 
       (for example, with the help of combination "ctrl/command" + "-").
 
-    5.2 By getting all data manualy and adding it to input fields.
-    
+    6.2 By getting all data manualy and adding it to input fields.
+   
       Get your external IP (fourth column) for service lnd-pod by running:
       ```
       ./show-host.sh
@@ -183,20 +197,6 @@ You won’t be charged unless you manually upgrade to a paid account.
       ```
       kubectl exec lnd-pod -- xxd -p /root/.lnd/data/chain/bitcoin/testnet/admin.macaroon | tr -d '[:space:]'
       ```
-
-6. Create a wallet inside lnd:
-   ```
-   kubectl exec lnd-pod -- ./lncli-testnet.sh create
-   ```
-   You should create a password for the wallet. 
-   
-   If you don't have a bitcoin wallet type that you don't have a seeds (n). 
-   You will get you [seed words](https://en.bitcoinwiki.org/wiki/Mnemonic_phrase).
-   **You need to keep seed words in secret and save if somewhere to restore or transfer you wallet.**
-   You can also create a password for seed words if you want.
-   
-   If you already have a bitcoin wallet type seed phrase if you want to use all balances from your wallet in the lnd.
-   
 
 ## How to restart lnd
 
