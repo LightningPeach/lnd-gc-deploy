@@ -126,6 +126,9 @@ You won’t be charged unless you manually upgrade to a paid account.
       ```
       kubectl exec lnd-pod -- xxd -p /root/.lnd/data/chain/bitcoin/mainnet/admin.macaroon | tr -d '[:space:]'
       ```
+
+    **You must keep macaroons and QR codes in secret. Providing them to third parties will give others full access to your funds.**
+
    
 ## Testnet
 
@@ -208,6 +211,9 @@ You won’t be charged unless you manually upgrade to a paid account.
       ```
       kubectl exec lnd-pod -- xxd -p /root/.lnd/data/chain/bitcoin/testnet/admin.macaroon | tr -d '[:space:]'
       ```
+
+    **You must keep macaroons and QR codes in secret. Providing them to third parties will give others full access to your funds.**
+
 
 ## How to restart lnd
 
