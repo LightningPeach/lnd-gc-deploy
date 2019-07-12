@@ -8,7 +8,7 @@ RUN go version
 # install lnd with http pathes
 RUN git clone https://github.com/LightningPeach/lnd.git /go/src/github.com/lightningnetwork/lnd
 WORKDIR /go/src/github.com/lightningnetwork/lnd
-RUN git checkout wallet-mainnet
+RUN git checkout wallet-mainnet-0.7.0
 RUN make && make install
 
 ENV CGO_ENABLED=1

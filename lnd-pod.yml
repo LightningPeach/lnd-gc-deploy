@@ -19,3 +19,4 @@ spec:
       volumeMounts:
         - name: lnd-storage
           mountPath: /root/.lnd
+      imagePullPolicy: Always

@@ -251,6 +251,47 @@ If you want to restart your lnd you need to run:
     exit
     ```
 
+## How to upgrade lnd
+
+If you want to restart your lnd you need to run:
+  ```
+  kubectl delete pod lnd-pod
+  ```
+  wait until lnd pod is deleted and then run
+  ```
+  git pull
+  git checkout lnd-0.7 #remove before merge to master and after tests 
+  ```
+  then run lnd
+  
+  * for **mainnet**
+      ```
+      kubectl create -f lnd-pod.yml
+      ```
+      wait while lnd is creating and run
+      ```
+      kubectl exec -it lnd-pod -- bash
+      ./lncli.sh unlock
+      ```
+      and type the password you used for lnd. Exit from the container:
+      ```
+      exit
+      ```
+    
+  * for **testnet**
+    ```
+    kubectl create -f lnd-pod-testnet.yml
+    ```
+    wait while lnd is creating and run
+    ```
+    kubectl exec -it lnd-pod -- bash
+    ./lncli-testnet.sh unlock
+    ```
+    and type the password you used for lnd. Exit from the container:
+    ```
+    exit
+    ```
+
 ## Deployment on own server
 
 Also you can deploy LND on your own from docker container. 
