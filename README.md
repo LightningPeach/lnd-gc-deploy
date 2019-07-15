@@ -260,7 +260,7 @@ If you want to restart your lnd you need to run:
   wait until lnd pod is deleted and then run
   ```
   git pull
-  git checkout lnd-0.7 #remove before merge to master and after tests 
+  git checkout lnd-0.7 #remove before merge to master && after tests && after update docker :latest tag to lnd-0.7
   ```
   then run lnd
   
