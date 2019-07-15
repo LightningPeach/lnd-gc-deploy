@@ -253,7 +253,7 @@ If you want to restart your lnd you need to run:
 
 ## How to upgrade lnd
 
-If you want to restart your lnd you need to run:
+To upgrade your lnd you need to run:
   ```
   kubectl delete pod lnd-pod
   ```
